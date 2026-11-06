@@ -8,6 +8,8 @@ env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-25.12
   TZ: Asia/Shanghai
+  UPLOAD_FIRMWARE: true
+  UPLOAD_RELEASE: true
 
 jobs:
   build:
@@ -64,13 +66,22 @@ jobs:
         with:
           openwrt_path: openwrt/bin/targets/armsr/armv8/*rootfs.tar.gz
           openwrt_board: s905d
+          kernel_repo: ophub/kernel
           kernel_usage: flippy
           openwrt_kernel: 6.12.y
           openwrt_size: 256/1024
-          builder_name: nantayo
+          builder_name: weijiefu1673
 
+      - name: Upload firmware
+        uses: actions/upload-artifact@main
+        if: env.UPLOAD_FIRMWARE == 'true'
+        with:
+          name: OpenWrt_firmware
+          path: ${{ env.PACKAGED_OUTPUTPATH }}/*.img.gz
+        
       - name: Upload firmware to release
         uses: softprops/action-gh-release@master
+        if: env.UPLOAD_RELEASE == 'true'
         with:
           tag_name: OpenWrt_${{ env.PACKAGED_OUTPUTDATE }}
           files: ${{ env.PACKAGED_OUTPUTPATH }}/*.img.gz
