@@ -55,10 +55,13 @@ jobs:
         run: |
           make defconfig
           make download -j$(( $(nproc) * 2 ))
+          find dl -size -1k -exec ls -l {} \;
+          find dl -size -1k -exec rm -f {} \;
 
       - name: Compile N1 firmware
         working-directory: ./openwrt
         run: |
+          echo -e "可使用的核心数：$(nproc)"
           make -j$(( $(nproc) + 1 )) || make -j1 V=s
 
       - name: Package N1 firmware
@@ -69,7 +72,6 @@ jobs:
           kernel_repo: ophub/kernel
           kernel_usage: flippy
           openwrt_kernel: 6.12.y
-          openwrt_size: 256/1024
           builder_name: weijiefu1673
 
       - name: Upload firmware
