@@ -5,8 +5,8 @@
 [luci-app-dae](https://github.com/daeuniverse/openwrt-packages)：基于eBPF分流的代理工具。内存占用稍大、上手门槛较高，换来的是直连流量处理性能大幅强于传统的各类用户态代理工具(OpenClash、SSRplus、Passwall等)。<br>
 [luci-app-passwall](https://github.com/Openwrt-Passwall/openwrt-passwall)：传统代理工具。内存占用稍低、简单易用。<br>
 [luci-app-podman](https://github.com/Zerogiven-OpenWRT-Packages/luci-app-podman)：容器管理<br>
-luci-app-samba4：存储共享
-luci-app-ttyd: 终端
+luci-app-samba4：存储共享<br>
+luci-app-ttyd: 终端<br>
 ***
 # 致谢
 本项目基于 [ImmortalWrt-25.12](https://github.com/immortalwrt/immortalwrt/tree/openwrt-25.12) 源码编译，使用 ophub 的[脚本](https://github.com/ophub/amlogic-s9xxx-openwrt)和 flippy 的[内核](https://github.com/ophub/kernel/releases/tag/kernel_flippy)打包成完整固件，感谢开发者们的无私分享。<br>
