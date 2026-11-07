@@ -3,6 +3,8 @@ name: Build ImmortalWrt-25.12 for armsr_armv8
 on:
   workflow_dispatch:
 
+permissions: write-all
+
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   REPO_URL: https://github.com/immortalwrt/immortalwrt
