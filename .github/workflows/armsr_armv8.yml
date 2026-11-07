@@ -10,7 +10,7 @@ env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-25.12
   TZ: Asia/Shanghai
-  UPLOAD_FIRMWARE: true
+  UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
 
 jobs:
@@ -80,14 +80,14 @@ jobs:
         uses: actions/upload-artifact@main
         if: env.UPLOAD_FIRMWARE == 'true'
         with:
-          name: OpenWrt_firmware
+          name: Openwrt_firmware
           path: ${{ env.PACKAGED_OUTPUTPATH }}/*.img.gz
         
       - name: Upload firmware to release
         uses: softprops/action-gh-release@master
         if: env.UPLOAD_RELEASE == 'true'
         with:
-          tag_name: OpenWrt_${{ env.PACKAGED_OUTPUTDATE }}
+          tag_name: Openwrt_${{ env.PACKAGED_OUTPUTDATE }}
           files: ${{ env.PACKAGED_OUTPUTPATH }}/*.img.gz
           body: |
             首次使用建议全新刷写
