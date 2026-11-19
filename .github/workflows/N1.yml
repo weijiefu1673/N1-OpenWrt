@@ -61,7 +61,6 @@ jobs:
       working-directory: ./openwrt
       run: |
         rm -rf ./files ./.config
-#        mv "$GITHUB_WORKSPACE/files" ./files
         mv "$GITHUB_WORKSPACE/config.seed" ./.config
 
     - name: Download package
