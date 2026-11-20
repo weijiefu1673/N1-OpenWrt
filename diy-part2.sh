@@ -31,8 +31,8 @@ rm -rf package/luci-app-amlogic
 git clone -b main --single-branch --depth=1 https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 # Add luci-app-passwall
-rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2socks,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,v2ray-plugin,xray-plugin,geoview,shadow-tls,smartdns}
-git clone -b main --single-branch --depth=1 https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
+#rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2socks,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,v2ray-plugin,xray-plugin,geoview,shadow-tls,smartdns}
+#git clone -b main --single-branch --depth=1 https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
 rm -rf feeds/luci/applications/luci-app-passwall
 git clone -b main --single-branch --depth=1 https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-luci
 
