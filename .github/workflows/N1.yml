@@ -53,9 +53,9 @@ jobs:
         chmod +x $GITHUB_WORKSPACE/diy-part1.sh
         $GITHUB_WORKSPACE/diy-part1.sh
         ./scripts/feeds update -a
-        ./scripts/feeds install -a
         chmod +x $GITHUB_WORKSPACE/diy-part2.sh
         $GITHUB_WORKSPACE/diy-part2.sh
+        ./scripts/feeds install -a
 
     - name: Load N1 custom config
       working-directory: ./openwrt
