@@ -36,7 +36,8 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        curl -s https://build-scripts.immortalwrt.org/init_build_environment.sh | sudo bash > /dev/null
+        sudo -E apt-get -qq update > /dev/null
+        sudo -E apt-get -qq install -y $(curl -fsSL https://raw.githubusercontent.com/ophub/amlogic-s9xxx-openwrt/main/make-openwrt/scripts/ubuntu2404-make-openwrt-depends) > /dev/null
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
