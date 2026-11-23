@@ -39,7 +39,7 @@ git clone -b main --single-branch --depth=1 https://github.com/ophub/luci-app-am
 # Add luci-app-podman
 rm -rf package/luci-app-podman
 git clone -b main --single-branch --depth=1 https://github.com/Zerogiven-OpenWRT-Packages/luci-app-podman.git package/luci-app-podman
-#
+
 # Apply patches
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
 sed -i '/luci-app-attendedsysupgrade/d' feeds/luci/collections/luci/Makefile
