@@ -2,6 +2,16 @@ name: Openwrt for N1
 
 on:
   workflow_dispatch:
+    inputs:
+      kernelUsage:
+        description: 'Set the tags of the stable kernel.'
+        required: false
+        default: "stable"
+        type: choice
+        options:
+        - stable
+        - flippy
+        - beta
 
 permissions: write-all
 
@@ -34,7 +44,7 @@ jobs:
         echo -e "$(sudo lshw -short -C memory | grep GiB) \n"
         echo "--------------------------硬盘信息--------------------------"
         df -hT
-        
+
     - name: Free Disk Space
       uses: jlumbroso/free-disk-space@main
       with:
@@ -115,7 +125,7 @@ jobs:
         openwrt_path: openwrt/bin/targets/armsr/armv8/*rootfs.tar.gz
         openwrt_board: s905d
         kernel_repo: ophub/kernel
-        kernel_usage: flippy
+        kernel_usage: ${{ inputs.kernelUsage }}
         openwrt_kernel: 6.12.y
         builder_name: weijiefu1673
 
