@@ -133,14 +133,14 @@ jobs:
       uses: actions/upload-artifact@main
       if: env.UPLOAD_FIRMWARE == 'true'
       with:
-        name: ${{ env.SOURCE_REPO }}_${{ env.FILE_DATE }}
+        name: ${{ env.SOURCE_REPO }}_${{ env.REPO_BRANCH }}_${{ env.FILE_DATE }}
         path: ${{ env.PACKAGED_OUTPUTPATH }}/*.img.gz
         
     - name: Release Firmware
       uses: softprops/action-gh-release@master
       if: env.UPLOAD_RELEASE == 'true'
       with:
-        tag_name: ${{ env.SOURCE_REPO }}_${{ env.FILE_DATE }}
+        tag_name: ${{ env.SOURCE_REPO }}_${{ env.REPO_BRANCH }}_${{ env.FILE_DATE }}
         files: ${{ env.PACKAGED_OUTPUTPATH }}/*.img.gz
         body: |
           首次使用建议全新刷写
