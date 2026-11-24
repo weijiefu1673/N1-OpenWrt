@@ -51,10 +51,9 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         sudo bash -c 'bash <(curl -sL https://build-scripts.immortalwrt.org/init_build_environment.sh)'
-        sudo -E apt -yqq install dos2unix
-        sudo -E apt -yqq install g++-multilib libfuse-dev
-        sudo -E apt -yqq autoclean
-        sudo -E apt -yqq clean
+        sudo -E apt-get -yqq install dos2unix
+        sudo -E apt-get -yqq install libfuse-dev
+        sudo -E apt-get -yqq clean
         sudo -E systemctl daemon-reload
         sudo timedatectl set-timezone "$TZ"
 
